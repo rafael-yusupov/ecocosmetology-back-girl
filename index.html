@@ -766,7 +766,8 @@ $("#lead").addEventListener("submit", async ev => {
   if (code) msg += "\nКод: " + code;
   if (CONFIG.endpoint) { try { await fetch(CONFIG.endpoint, {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({name, phone:"+"+tel, time, service:"Чистка спины", price:800000, ts:new Date().toISOString()})}); } catch(e) {} }
   $("#d-msg").textContent = msg;
-  $("#d-go").href = "https://t.me/" + CONFIG.telegram;
+  // готовый текст сразу в поле ввода чата (t.me/<username>?text=…); копия в буфере — запасной вариант
+  $("#d-go").href = "https://t.me/" + CONFIG.telegram + "?text=" + encodeURIComponent(msg);
   $("#lead").hidden = true; $("#done").hidden = false;
   copyMsg();
   $("#done").scrollIntoView({block: "center", behavior: "smooth"});
@@ -1171,7 +1172,8 @@ $("#lead").addEventListener("submit", async ev => {
   if (code) msg += "\nКод: " + code;
   if (CONFIG.endpoint) { try { await fetch(CONFIG.endpoint, {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({name, phone:"+"+tel, time, service:"Чистка спины", lang:"uz", price:800000, ts:new Date().toISOString()})}); } catch(e) {} }
   $("#d-msg").textContent = msg;
-  $("#d-go").href = "https://t.me/" + CONFIG.telegram;
+  // готовый текст сразу в поле ввода чата (t.me/<username>?text=…); копия в буфере — запасной вариант
+  $("#d-go").href = "https://t.me/" + CONFIG.telegram + "?text=" + encodeURIComponent(msg);
   $("#lead").hidden = true; $("#done").hidden = false;
   copyMsg();
   $("#done").scrollIntoView({block: "center", behavior: "smooth"});
@@ -1576,7 +1578,8 @@ $("#lead").addEventListener("submit", async ev => {
   if (code) msg += "\nКод: " + code;
   if (CONFIG.endpoint) { try { await fetch(CONFIG.endpoint, {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({name, phone:"+"+tel, time, service:"Чистка спины", lang:"en", price:800000, ts:new Date().toISOString()})}); } catch(e) {} }
   $("#d-msg").textContent = msg;
-  $("#d-go").href = "https://t.me/" + CONFIG.telegram;
+  // готовый текст сразу в поле ввода чата (t.me/<username>?text=…); копия в буфере — запасной вариант
+  $("#d-go").href = "https://t.me/" + CONFIG.telegram + "?text=" + encodeURIComponent(msg);
   $("#lead").hidden = true; $("#done").hidden = false;
   copyMsg();
   $("#done").scrollIntoView({block: "center", behavior: "smooth"});
